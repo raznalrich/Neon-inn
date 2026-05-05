@@ -1,0 +1,152 @@
+<section class="hero">
+    <div class="hero-bg-glow"></div>
+  
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <span class="badge">✦ Handcrafted Neon Signs</span>
+  
+        <h1 class="hero-heading">
+          Light Up Your Space
+          <span class="neon-text">With Custom Neon</span>
+        </h1>
+  
+        <p class="hero-sub">
+          Premium LED neon signs for homes, businesses, and events.
+          Fully customizable. Delivered across India.
+        </p>
+  
+        <div class="hero-cta">
+          <a routerLink="/products" class="btn-primary-lg">Shop Now</a>
+          <a href="#about" class="btn-outline">Learn More</a>
+        </div>
+  
+        <div class="hero-stats">
+          @for (stat of stats; track stat.label) {
+            <div class="stat">
+              <span class="stat-value">{{ stat.value }}</span>
+              <span class="stat-label">{{ stat.label }}</span>
+            </div>
+          }
+        </div>
+      </div>
+  
+      <div class="carousel-wrap">
+        <div class="carousel-stage">
+          @for (slide of heroSlides; track slide.label; let i = $index) {
+            <div
+              class="carousel-card"
+              [class.active]="i === activeSlide()"
+              [ngStyle]="getSlideStyle(i)"
+            >
+              <img
+                [src]="slide.img"
+                [alt]="slide.label"
+                width="260"
+                height="340"
+                loading="lazy"
+              />
+              <div class="card-label">{{ slide.label }}</div>
+            </div>
+          }
+        </div>
+  
+        <div class="carousel-controls">
+          <button class="ctrl-btn" (click)="prevSlide()" aria-label="Previous slide">
+            &#8592;
+          </button>
+  
+          <div class="dots">
+            @for (slide of heroSlides; track slide.label; let i = $index) {
+              <button
+                class="dot"
+                [class.active]="i === activeSlide()"
+                (click)="activeSlide.set(i)"
+                [attr.aria-label]="'Go to slide ' + (i + 1)"
+              ></button>
+            }
+          </div>
+  
+          <button class="ctrl-btn" (click)="nextSlide()" aria-label="Next slide">
+            &#8594;
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="featured" id="products">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Our Collection</span>
+        <h2>Featured <span class="neon-text">Neon Signs</span></h2>
+        <p>Handpicked bestsellers — ready to ship across India.</p>
+      </div>
+  
+      <div class="product-grid">
+        @for (product of featuredProducts(); track product.id) {
+          <app-product-card [product]="product"></app-product-card>
+        }
+      </div>
+  
+      <div class="view-all">
+        <a routerLink="/products" class="btn-primary-lg">View All Products</a>
+      </div>
+    </div>
+  </section>
+  
+  <section class="why-us" id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Choose <span class="neon-text">NeonStore</span></h2>
+      </div>
+  
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">⚡</div>
+          <h3>Premium LED</h3>
+          <p>Long-lasting silicone LED tube, not glass. Safe, flexible, energy efficient.</p>
+        </div>
+  
+        <div class="why-card">
+          <div class="why-icon">🎨</div>
+          <h3>Fully Custom</h3>
+          <p>Choose font, color, size. We make it exactly how you imagine.</p>
+        </div>
+  
+        <div class="why-card">
+          <div class="why-icon">🚚</div>
+          <h3>All India Delivery</h3>
+          <p>Safe packed and shipped. Delivered in 7–10 business days.</p>
+        </div>
+  
+        <div class="why-card">
+          <div class="why-icon">💬</div>
+          <h3>WhatsApp Support</h3>
+          <p>Direct support on WhatsApp. Order tracking, queries — all in one chat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="contact" id="contact">
+    <div class="container contact-inner">
+      <h2>Ready to <span class="neon-text">Order?</span></h2>
+      <p>Message us directly on WhatsApp for custom quotes and bulk orders.</p>
+  
+      <a
+        href="https://wa.me/919999999999?text=Hi%20I%20want%20a%20custom%20neon%20sign"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-whatsapp"
+      >
+        💬 Chat on WhatsApp
+      </a>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 NeonStore. All rights reserved.</span>
+      <span>Made with ❤️ in Kerala, India</span>
+    </div>
+  </footer>
