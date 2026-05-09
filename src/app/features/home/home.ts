@@ -16,11 +16,11 @@ export class Home implements OnInit {
   activeSlide = signal(0);
 
   heroSlides = [
-    { label: 'Custom Neon Signs', img: 'https://picsum.photos/seed/neon-hero-1/400/500' },
-    { label: 'Business Signs',    img: 'https://picsum.photos/seed/neon-hero-2/400/500' },
-    { label: 'Bedroom Decor',     img: 'https://picsum.photos/seed/neon-hero-3/400/500' },
-    { label: 'Love Signs',        img: 'https://picsum.photos/seed/neon-hero-4/400/500' },
-    { label: 'Quote Signs',       img: 'https://picsum.photos/seed/neon-hero-5/400/500' },
+    { label: 'Custom Neon Signs', img: 'https://images.unsplash.com/photo-1569081156361-c98e05e7f1e4?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+    { label: 'Business Signs',    img: 'https://images.unsplash.com/photo-1507120410856-1f35574c3b45?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+    { label: 'Bedroom Decor',     img: 'https://images.unsplash.com/photo-1602918955248-d1bbfcbfae38?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+    { label: 'Love Signs',        img: 'https://images.unsplash.com/photo-1543332164-6e82f355badc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+    { label: 'Quote Signs',       img: 'https://plus.unsplash.com/premium_photo-1674670903819-8983675fe386?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
   ];
 
   stats = [
