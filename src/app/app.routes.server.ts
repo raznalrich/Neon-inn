@@ -4,7 +4,7 @@ export const serverRoutes: ServerRoute[] = [
   {
     path: 'products/:slug',
     renderMode: RenderMode.Server
-  },
+  }, 
   {
     path: '**',
     renderMode: RenderMode.Prerender
