@@ -8,6 +8,12 @@ export const PRODUCTS_ROUTES: Routes = [
         .then(m => m.ProductList)
   },
   {
+    path: 'customize',
+    loadComponent: () =>
+      import('./pages/neon-cutomizer/neon-cutomizer')
+        .then(m => m.NeonCutomizer)
+  },
+  {
     path: ':slug',
     loadComponent: () =>
       import('./pages/product-details/product-details')

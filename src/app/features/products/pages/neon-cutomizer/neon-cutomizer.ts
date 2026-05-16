@@ -17,7 +17,7 @@ export interface FontOption {
   selector: 'app-neon-cutomizer',
   imports: [CommonModule, ReactiveFormsModule, CurrencyPipe],
   templateUrl: './neon-cutomizer.html',
-  styleUrl: './neon-cutomizer.css',
+  styleUrl: './neon-cutomizer.scss',
 })
 export class NeonCutomizer {
   readonly baseRate = 180; // ₹ per letter — adjust as needed

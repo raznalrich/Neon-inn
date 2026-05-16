@@ -1,11 +1,10 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { ProductCard } from '../../../../shared/components/product-card/product-card';
 import { ProductService } from '../../../../core/services/product.service';
 
 @Component({
   selector: 'app-product-list',
-  imports: [RouterLink, ProductCard],
+  imports: [ProductCard],
   templateUrl: './product-list.html',
   styleUrl: './product-list.scss',
 })
