@@ -4,7 +4,7 @@ import { Product } from '../models/product.model';
 @Injectable({ providedIn: 'root' })
 export class WhatsappService {
     // ⚠️ Replace with your actual WhatsApp number (international format)
-    private readonly phone = '919999999999';
+    private readonly phone = '+917593016782';
 
     createBuyLink(product: Product): string {
         const productUrl = window.location.origin + '/products/' + product.slug;
