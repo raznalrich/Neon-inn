@@ -21,7 +21,7 @@ export interface FontOption {
 })
 export class NeonCutomizer {
   readonly baseRate = 180; // ₹ per letter — adjust as needed
-  readonly whatsappNumber = '919999999999'; // replace with real number
+  readonly whatsappNumber = '+917593016782'; // replace with real number
 
   // ── Available font options ─────────────────────────────────────────────────
   readonly fonts: FontOption[] = [
