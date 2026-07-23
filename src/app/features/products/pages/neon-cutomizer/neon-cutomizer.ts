@@ -33,7 +33,7 @@ export class NeonCutomizer {
   ];
 
   // ── Form control ───────────────────────────────────────────────────────────
-  readonly textControl = new FormControl('Raznal', { nonNullable: true });
+  readonly textControl = new FormControl('', { nonNullable: true });
 
   // ── Selected font signal ───────────────────────────────────────────────────
   readonly selectedFont = signal<FontOption>(this.fonts[0]);
