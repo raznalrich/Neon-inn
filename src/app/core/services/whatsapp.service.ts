@@ -1,9 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Product } from '../models/product.model';
+import { SupabaseService } from './supabase.service';
 
 @Injectable({ providedIn: 'root' })
 export class WhatsappService {
     // ⚠️ Replace with your actual WhatsApp number (international format)
+    private supabase = inject(SupabaseService);
     private readonly phone = '+917593016782';
 
     createBuyLink(product: Product): string {
@@ -16,6 +18,30 @@ export class WhatsappService {
     }
 
     openWhatsapp(product: Product): void {
+        // Record the order for the admin portal; never block opening WhatsApp on it.
+        this.logOrder(product).catch(err =>
+            console.error('Failed to log WhatsApp order:', err));
         window.open(this.createBuyLink(product), '_blank', 'noopener,noreferrer');
+    }
+
+    private async logOrder(product: Product): Promise<void> {
+        const { error } = await this.supabase.client.from('orders').insert({
+            customer_name: 'WhatsApp Customer',
+            customer_phone: '',
+            customer_address: '',
+            items: [{
+                customername: 'WhatsApp Customer',
+                phonenumber: '',
+                productId: product.id,
+                productName: product.name,
+                price: product.price,
+                qty: 1,
+            }],
+            total: product.price,
+            status: 'pending',
+            source: 'whatsapp',
+            notes: '',
+        });
+        if (error) throw new Error(error.message);
     }
 }

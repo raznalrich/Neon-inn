@@ -1,0 +1,14 @@
+@if (policy(); as p) {
+  <section class="policy container">
+    <h1>{{ p.title }}</h1>
+    <p class="updated">Last updated: {{ p.updated }}</p>
+    <p class="intro">{{ p.intro }}</p>
+
+    @for (s of p.sections; track s.heading) {
+      <h2>{{ s.heading }}</h2>
+      @for (para of s.body; track para) {
+        <p>{{ para }}</p>
+      }
+    }
+  </section>
+}

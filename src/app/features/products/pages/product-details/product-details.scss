@@ -91,6 +91,38 @@ h1 {
   color: var(--color-primary-bright);
 }
 
+.price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.max-price {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text-faint);
+  text-decoration: line-through;
+  text-decoration-color: var(--color-neon-pink);
+}
+
+.recent {
+  margin-top: var(--space-24);
+
+  h2 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-8);
+  }
+}
+
+.recent-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  gap: var(--space-6);
+  align-items: start;
+}
+
 .btn-buy {
   display: inline-flex;
   align-items: center;

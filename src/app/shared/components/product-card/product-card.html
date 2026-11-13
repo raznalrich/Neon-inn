@@ -14,7 +14,12 @@
     <p>{{ product.shortDescription }}</p>
 
     <div class="card-footer">
-      <span class="price">₹{{ product.price.toLocaleString('en-IN') }}</span>
+      <div class="price-wrap">
+        @if (product.maxRetailPrice && product.maxRetailPrice > product.price) {
+          <span class="max-price">₹{{ product.maxRetailPrice.toLocaleString('en-IN') }}</span>
+        }
+        <span class="price">₹{{ product.price.toLocaleString('en-IN') }}</span>
+      </div>
       <a [routerLink]="['/products', product.slug]" class="btn-view">View Details</a>
     </div>
   </div>

@@ -11,10 +11,11 @@ import { ProductService } from '../../../../core/services/product.service';
 export class ProductList {
   private productService = inject(ProductService);
 
-  readonly allProducts = this.productService.getProducts();
+  readonly isLoading = this.productService.isLoading;
+  readonly allProducts = this.productService.products;
 
-  /** unique sorted categories */
-  readonly categories = ['All', ...new Set(this.allProducts.map(p => p.category)).values()];
+  /** unique categories */
+  readonly categories = computed(() => ['All', ...new Set(this.allProducts().map(p => p.category).filter(Boolean))]);
 
   readonly searchQuery = signal('');
   readonly activeCategory = signal('All');
@@ -25,7 +26,7 @@ export class ProductList {
     const cat = this.activeCategory();
     const sort = this.sortBy();
 
-    let list = this.allProducts.filter(p => {
+    let list = this.allProducts().filter(p => {
       const matchCat = cat === 'All' || p.category === cat;
       const matchQ = !q
         || p.name.toLowerCase().includes(q)

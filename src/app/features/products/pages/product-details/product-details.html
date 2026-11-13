@@ -24,7 +24,12 @@
           <span class="category">{{ p.category }}</span>
           <h1>{{ p.name }}</h1>
           <p class="description">{{ p.description }}</p>
-          <div class="price">₹{{ p.price.toLocaleString('en-IN') }}</div>
+          <div class="price-wrap">
+            @if (p.maxRetailPrice && p.maxRetailPrice > p.price) {
+              <span class="max-price">₹{{ p.maxRetailPrice.toLocaleString('en-IN') }}</span>
+            }
+            <span class="price">₹{{ p.price.toLocaleString('en-IN') }}</span>
+          </div>
 
           <button class="btn-buy" (click)="buyNow()">
             💬 Buy on WhatsApp
@@ -33,6 +38,17 @@
           <p class="hint">Clicking Buy opens WhatsApp with product details pre-filled.</p>
         </div>
       </div>
+
+      @if (recentProducts().length) {
+        <section class="recent">
+          <h2>Recently Added Products</h2>
+          <div class="recent-grid">
+            @for (item of recentProducts(); track item.id) {
+              <app-product-card [product]="item" />
+            }
+          </div>
+        </section>
+      }
     }
 
   </div>

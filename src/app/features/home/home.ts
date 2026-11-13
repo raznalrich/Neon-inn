@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Product } from '../../core/models/product.model';
@@ -11,8 +11,8 @@ import { ProductCard } from '../../shared/components/product-card/product-card';
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home implements OnInit {
-  featuredProducts = signal<Product[]>([]);
+export class Home {
+  featuredProducts = computed(() => this.productService.products().slice(0, 6));
   activeSlide = signal(0);
 
   heroSlides = [
@@ -30,10 +30,6 @@ export class Home implements OnInit {
   ];
 
   constructor(private productService: ProductService) {}
-
-  ngOnInit() {
-    this.featuredProducts.set(this.productService.getProducts().slice(0, 6));
-  }
 
   prevSlide() {
     this.activeSlide.update(s => (s - 1 + this.heroSlides.length) % this.heroSlides.length);

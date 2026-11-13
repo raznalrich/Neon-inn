@@ -4,6 +4,8 @@ export interface Product {
     name: string;
     shortDescription: string;
     description: string;
+    normalCost?: number;
+    maxRetailPrice?: number;
     price: number;
     currency: 'INR';
     images: string[];
